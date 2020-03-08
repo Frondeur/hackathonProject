@@ -1,0 +1,60 @@
+.landing{
+  &-page {
+    display: flex;
+  }
+
+  &-logo {
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-img {
+      width: 150px;
+      height: 150px;
+    }
+
+    &-text {
+
+      span {
+        margin: 10px;
+        color: #63cac6;
+      }
+
+      span:last-child {
+        color: #88d597;
+      }
+    }
+  }
+
+  &-text-block {
+    width: 50%;
+    height: 100vh;
+    background: black url("../../assets/mainbg.jpg") center no-repeat;
+    background-size: cover;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-text {
+    font-size: 36px;
+    margin-bottom: 20%;
+    text-align: center;
+    color: darkcyan;
+  }
+
+  &-button {
+    background-color: darkcyan;
+    font-size: 20px;
+    color: white;
+    font-style: italic;
+    margin: 0 20px 0 60%;
+  }
+}
+
