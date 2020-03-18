@@ -40,26 +40,12 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { RulerPageComponent } from './ruler-page/ruler-page.component';
-import { RequestPageComponent } from './request-page/request-page.component';
-import { GoogleChartsModule } from 'angular-google-charts';
-import { ChartComponent } from './chart/chart.component';
-import { CoreIdeaComponent } from './core-idea/core-idea.component';
-import {ThankYouPageComponent} from './thank-you/thank-you-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LandingPageComponent,
-    RulerPageComponent,
-    RequestPageComponent,
-    ChartComponent,
-    CoreIdeaComponent,
-    ThankYouPageComponent,
+    AppComponent
   ],
   imports: [
-    GoogleChartsModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

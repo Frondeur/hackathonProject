@@ -56,6 +56,9 @@
           </mat-list-item>
         </mat-list>
       </div>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
@@ -127,11 +130,7 @@
               <mat-list role="list">
                 <mat-list-item role="listitem">•  Operation Noise: <= 100dB</mat-list-item>
                 <mat-list-item role="listitem">•  Distance to existing buildings: 100m</mat-list-item>
-                <mat-list-item role="listitem">Electromagnetic generators fall into one of two broad categories, dynamos and alternators.
-
-                  Dynamos generate pulsing direct current through the use of a commutator.
-                  Alternators generate alternating current.
-                </mat-list-item>
+                <mat-list-item role="listitem">...</mat-list-item>
               </mat-list>
             </div>
             <div class="actions-for-a-rule">
@@ -179,8 +178,8 @@
         </mat-expansion-panel>
       </div>
       <div style="display: flex; justify-content: flex-end;">
-        <button mat-raised-button color="primary" routerLink="/request">
-          Access knowledge
+        <button mat-raised-button color="primary">
+          New ticket
         </button>
       </div>
     </div>
@@ -195,6 +194,5 @@
     </div>
   </mat-step>
 </mat-horizontal-stepper>
-
 
 
