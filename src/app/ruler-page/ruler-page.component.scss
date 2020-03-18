@@ -1,0 +1,62 @@
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+.logo {
+  width: 100px;
+  //height: 80px;
+  //padding: 20px;
+}
+
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.frequently-asked-question-item {
+  background-color: gray;
+  color: white;
+  font-size: 24px;
+  padding: 10px 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+
+}
+
+.our-rules-list-item {
+  //margin-bottom: 20px !important;
+  .mat-expansion-panel-header {
+    //height: 70px !important;
+  }
+}
+
+mat-expansion-panel {
+  background-color: red;
+}
+
+.header-for-step-2 {
+  font-weight: bold;
+  color: gray;
+font-size: 16px;
+  text-transform: uppercase;
+}
+.text-for-step-2 {
+  font-size: 14px;
+  padding-left: 16px;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.actions-for-a-rule {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+}
