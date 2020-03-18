@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-request-page',
@@ -7,6 +7,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./request-page.component.scss']
 })
 export class RequestPageComponent implements OnInit {
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  panelOpenState = false;
+
   industryOptions: string[] = [
     "Accounting ",
     "Airlines/Aviation",
@@ -44,6 +49,7 @@ export class RequestPageComponent implements OnInit {
     "E-Learning",
     "Education Management",
     "Electrical/Electronic Manufacturing",
+    "Energy Market",
     "Entertainment/Movie Production",
     "Environmental Services",
     "Events Services",
@@ -178,6 +184,7 @@ export class RequestPageComponent implements OnInit {
     "Grenada",
     "Guadeloupe",
     "Guatemala",
+    "Germany",
     "Haiti",
     "Honduras",
     "Jamaica",
@@ -194,10 +201,25 @@ export class RequestPageComponent implements OnInit {
     "Turks and Caicos Islands",
     "US Virgin Islands",
   ];
+  defaultMarket = new FormControl('Germany');
+  defaultIndustry = new FormControl('Energy Market');
+  defaultStatus = new FormControl('Draft');
 
+  statusOptions: string[] = [
+    "Draft",
+    "Final"
+  ];
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+    this.firstFormGroup = this.formBuilder.group({
+      industry: [''],
+      market: [''],
+      question: ['', Validators.required],
+    });
+    this.secondFormGroup = this.formBuilder.group({
+      market: ['', Validators.required]
+    });
   }
 }
 

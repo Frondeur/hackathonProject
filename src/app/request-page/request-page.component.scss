@@ -31,4 +31,18 @@
   flex-direction: column;
 }
 
+.dates {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-button {
+  background-color: darkcyan;
+  font-size: 20px;
+  color: white;
+  font-style: italic;
+  margin: 0 10px 0 70%;
+  text-transform: uppercase;
+}
 

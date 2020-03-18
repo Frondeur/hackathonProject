@@ -1,31 +1,190 @@
-<img src="/assets/logo.png" class="logo">
+<mat-toolbar>
+  <mat-toolbar-row style="height: auto; padding: 0 30px 0 30px;">
+    <img src="/assets/logo.png" class="logo">
 
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+    <mat-form-field class="example-full-width" style="width: 340px">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" matPrefix>search</mat-icon>
+      <input matInput placeholder="Search...">
+    </mat-form-field>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper style="height: calc(100% - 108px);">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      <ng-template matStepLabel>My Question</ng-template>
+      <mat-form-field style="width: 100%; padding: 0 100px; box-sizing: border-box;">
+        <mat-label>Ask a question</mat-label>
+        <input matInput placeholder="Ask a question" formControlName="industry">
       </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
+      <div style="display: flex; width: 100%; padding: 0 100px; box-sizing: border-box;">
+        <mat-form-field style="width: 50%; margin-right: 160px;">
+          <mat-label>Industry</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let industry of industryOptions" [value]="industry">
+              {{industry}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field style="width: 50%;">
+          <mat-label>Market</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let market of marketOptions" [value]="market">
+              {{market}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div style="padding: 0 100px;">
+        <p style="font-size: 30px; margin-top: 80px;">Frequently asked questions:</p>
+        <mat-list>
+          <mat-list-item style="height: auto">
+            <div class="frequently-asked-question-item">
+              Can I sell my electric generator in Germany?
+              <span class="example-fill-remaining-space"></span>
+              <mat-icon aria-hidden="false" aria-label="Example home icon" matPrefix>arrow_right</mat-icon>
+            </div>
+          </mat-list-item>
+          <mat-list-item style="height: auto">
+            <div class="frequently-asked-question-item">
+              Which type approval requirements exist in England for a rotator?
+              <span class="example-fill-remaining-space"></span>
+              <mat-icon aria-hidden="false" aria-label="Example home icon" matPrefix>arrow_right</mat-icon>
+            </div>
+          </mat-list-item>
+        </mat-list>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+    <div style="margin-top: 50px; padding: 0 100px">
+      <ng-template matStepLabel>Results</ng-template>
+      <div style="display: flex;
+    align-items: center;
+    margin-bottom: 10px;">
+        <div class="header-for-step-2">
+          Your question is:
+        </div>
+        <div class="text-for-step-2">
+          What complience rules are applicable for an electrical generator?
+        </div>
       </div>
-    </form>
+      <div style="display: flex;
+    align-items: center;
+    margin-bottom: 10px;">
+        <div class="header-for-step-2">
+          The industry is:
+        </div>
+        <div class="text-for-step-2">
+          Energy Market
+        </div>
+      </div>
+      <div style="display: flex;
+    align-items: center;
+    margin-bottom: 20px;">
+        <div class="header-for-step-2">
+          Your market is:
+        </div>
+        <div class="text-for-step-2">
+          Germany
+        </div>
+      </div>
+      <mat-divider style="margin-bottom: 40px;"></mat-divider>
+
+      <div style="display: flex;align-items: center;margin-bottom: 20px;">
+        <mat-checkbox style="margin:15px;"></mat-checkbox>
+        <mat-expansion-panel class="our-rules-list-item" style="flex: 1;">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="flex-grow: 0">
+              <p style="font-weight: bold; color: gray; font-size: 24px; margin: 0;">1.</p>
+            </mat-panel-title>
+            <mat-panel-description style="align-items: center; font-size: 18px;">
+              General requirements for an electricity generator
+            </mat-panel-description>
+            <mat-panel-description style="width: 100px;align-items: center; flex-grow: 0;">
+              <span class="example-fill-remaining-space"></span>
+              <div>
+                <p class="no-margin" style="color: #3f51b5;">80% relevant</p>
+                <mat-progress-bar
+                  mode="determinate"
+                  color="primary"
+                  value="80"
+                  style="width: 100%;"
+                ></mat-progress-bar>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-divider></mat-divider>
+          <div style="margin-top: 20px;">
+            <div class="details-for-a-rule">
+              <p style="margin: 0 14px;
+    font-size: 17px;
+    line-height: 1.5rem;">
+                The generator must be designed to comply with the applicable noise requirements defined under § 123 Noise.
+              </p>
+              <mat-list role="list">
+                <mat-list-item role="listitem">•  Operation Noise: <= 100dB</mat-list-item>
+                <mat-list-item role="listitem">•  Distance to existing buildings: 100m</mat-list-item>
+                <mat-list-item role="listitem">Electromagnetic generators fall into one of two broad categories, dynamos and alternators.
+
+                  Dynamos generate pulsing direct current through the use of a commutator.
+                  Alternators generate alternating current.
+                </mat-list-item>
+              </mat-list>
+            </div>
+            <div class="actions-for-a-rule">
+              <mat-chip-list aria-label="Fish selection">
+                <mat-chip>§ 123 Noise</mat-chip>
+              </mat-chip-list>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
+      <div style="display: flex; align-items: center; margin-bottom: 20px;">
+        <mat-checkbox style="margin:15px;"></mat-checkbox>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false"
+                             class="our-rules-list-item" style="flex: 1;">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="flex-grow: 0">
+              <p style="font-weight: bold; color: gray; font-size: 24px; margin: 0;">2.</p>
+            </mat-panel-title>
+            <mat-panel-description style="align-items: center; font-size: 18px;">
+              Animals as energy source: Usage of a hamster wheel
+            </mat-panel-description>
+            <mat-panel-description style="width: 100px;align-items: center; flex-grow: 0;">
+              <span class="example-fill-remaining-space"></span>
+              <div>
+                <p class="no-margin" style="color: #f44336;">60% relevant</p>
+                <mat-progress-bar
+                  mode="determinate"
+                  color="warn"
+                  value="60"
+                  style="width: 100%;"
+                ></mat-progress-bar>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-divider></mat-divider>
+          <div style="margin-top: 20px;">
+
+            <div class="actions-for-a-rule">
+              <mat-chip-list aria-label="Fish selection">
+                <mat-chip>§ 125 Animals</mat-chip>
+              </mat-chip-list>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
+      <div style="display: flex; justify-content: flex-end;">
+        <button mat-raised-button color="primary" routerLink="/request">
+          Access knowledge
+        </button>
+      </div>
+    </div>
+
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
@@ -36,5 +195,6 @@
     </div>
   </mat-step>
 </mat-horizontal-stepper>
+
 
 

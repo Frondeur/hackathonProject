@@ -11,24 +11,88 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="request-page">
-  <mat-form-field style="width: 50%;">
-    <mat-label>Market</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let market of marketOptions" [value]="market">
-        {{market}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<mat-horizontal-stepper [linear]="isLinear" #stepper style="height: calc(100% - 108px);">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>User Input</ng-template>
+      <form class="request-page">
+        <mat-form-field class="example-full-width" style="width: 50%;">
+          <mat-label>Topic</mat-label>
+          <input matInput>
+        </mat-form-field>
 
-  <mat-form-field style="width: 50%;">
-    <mat-label>Industry</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let industry of industryOptions" [value]="industry">
-        {{industry}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+        <mat-form-field style="width: 50%;">
+          <mat-label>Industry</mat-label>
+          <mat-select [formControl]="defaultIndustry"
+                      panelClass="example-panel-{{defaultIndustry.value}}">
+            <mat-option *ngFor="let industry of industryOptions" [value]="industry">
+              {{industry}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field style="width: 50%;">
+          <mat-label>Market</mat-label>
+          <mat-select [formControl]="defaultMarket"
+                      panelClass="example-panel-{{defaultMarket.value}}">
+            <mat-option *ngFor="let market of marketOptions" [value]="market">
+              {{market}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="dates">
+          <mat-form-field style="width: 45%;">
+            <mat-label>Choose a start date</mat-label>
+            <input matInput [matDatepicker]="pickerStart">
+            <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field style="width: 45%;">
+            <mat-label>Choose a end date</mat-label>
+            <input matInput [matDatepicker]="pickerEnd">
+            <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field class="example-full-width" style="width: 50%;">
+          <mat-label>Regulation reference</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field style="width: 50%;">
+          <mat-label>Status of regulation</mat-label>
+          <mat-select [formControl]="defaultStatus"
+                      panelClass="example-panel-{{defaultStatus.value}}">
+            <mat-option *ngFor="let status of statusOptions" [value]="status">
+              {{status}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" style="width: 50%;">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Your description here"></textarea>
+        </mat-form-field>
+
+        <button mat-button class="save-button" routerLink="/core-idea">start workflow</button>
+      </form>
+
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <ng-template matStepLabel>System output</ng-template>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
 
 

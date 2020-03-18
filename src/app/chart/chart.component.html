@@ -1,0 +1,39 @@
+<mat-toolbar>
+  <mat-toolbar-row style="height: auto; padding: 0 30px 0 30px;">
+    <img src="/assets/logo.png" class="logo">
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+    <mat-form-field class="example-full-width" style="width: 340px">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" matPrefix>search</mat-icon>
+      <input matInput placeholder="Search...">
+    </mat-form-field>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="charts">
+
+  <google-chart
+    [title]="title1"
+    [type]="type1"
+    [data]="data1"
+    [columnNames]="columnNames1"
+    [options]="options1">
+  </google-chart>
+
+  <google-chart
+    [title]="title"
+    [type]="type"
+    [data]="data"
+    [columnNames]="columnNames"
+    [options]="options">
+  </google-chart>
+
+  <google-chart
+    [title]="title3"
+    [type]="type3"
+    [data]="data3"
+    [columnNames]="columnNames3"
+    [options]="options3">
+  </google-chart>
+</div>
